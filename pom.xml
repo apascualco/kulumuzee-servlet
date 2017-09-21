@@ -1,59 +1,56 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>apascualco.blog</groupId>
-  <artifactId>kulumuzee-rest</artifactId>
+    <groupId>apascualco.blog</groupId>
+    <artifactId>kulumuzee-servlet</artifactId>
 
-  <packaging>jar</packaging>
+    <packaging>jar</packaging>
 
-  <version>1.0-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
-  <name>kulumuzee-rest</name>
-  <url>http://maven.apache.org</url>
+    <properties>
+        <kumuluzee.version>2.4.1</kumuluzee.version>
+    </properties>
 
-  <properties>
-    <kumuluzee.version>2.4.1</kumuluzee.version>
-  </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-bom</artifactId>
+                <version>${kumuluzee.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-  <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-bom</artifactId>
-        <version>${kumuluzee.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-servlet-jetty</artifactId>
+        </dependency>
     </dependencies>
-  </dependencyManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.kumuluz.ee</groupId>
-      <artifactId>kumuluzee-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.kumuluz.ee</groupId>
-      <artifactId>kumuluzee-servlet-jetty</artifactId>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-maven-plugin</artifactId>
-        <version>2.4.1</version>
-        <executions>
-          <execution>
-            <id>package</id>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-maven-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <id>package</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
