@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>apascualco.blog</groupId>
-    <artifactId>kulumuzee-servlet</artifactId>
+    <artifactId>kumuluzee-servlet</artifactId>
 
     <packaging>jar</packaging>
 
